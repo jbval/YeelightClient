@@ -1,0 +1,28 @@
+<div *ngIf="status$ | async as status">
+  <div class="frontLight">
+    <h2>Lampe avant</h2>
+    <app-simple-status
+      [state]="status.params.power | onOff"
+      [intensity]="status.params.bright"
+      [hexColor]="status.params.rgb | hex"
+      [hue]="status.params.hue"
+      [sat]="status.params.sat"
+      [tempColor]="status.params.ct"
+      [mode]="status.params.color_mode"
+      (toggleState)="toggleFront$.next()"
+    ></app-simple-status>
+  </div>
+  <div class="backLight">
+    <h2>Lampe arrière</h2>
+    <app-simple-status
+      [state]="status.params.bg_power | onOff"
+      [intensity]="status.params.bg_bright"
+      [hexColor]="status.params.bg_rgb | hex"
+      [hue]="status.params.bg_hue"
+      [sat]="status.params.bg_sat"
+      [tempColor]="status.params.bg_ct"
+      [mode]="status.params.bg_lmode"
+      (toggleState)="toggleBack$.next()"
+    ></app-simple-status>
+  </div>
+</div>
