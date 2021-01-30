@@ -1,0 +1,31 @@
+<ng-container [ngSwitch]="mode">
+  <span *ngSwitchCase="1">
+    <!-- RGB -->
+    <span
+      [ngStyle]="{ 'background-color': hexCode }"
+      style="
+        display: inline-block;
+        width: 20px;
+        height: 10px;
+        border: 1px solid #ccc;
+      "
+    ></span
+  ></span>
+  <span *ngSwitchCase="2">
+    <!-- Color Temperature -->
+    <progress [value]="colorTemperature - 1700" max="{{ 6500 - 1700 }}">
+    </progress>{{ colorTemperature }} °K
+  </span>
+  <span *ngSwitchCase="3">
+    <!-- HSV -->
+    <span
+      [ngStyle]="{ 'background-color': getHslCssColor }"
+      style="
+        display: inline-block;
+        width: 20px;
+        height: 10px;
+        border: 1px solid #ccc;
+      "
+    ></span>
+  </span>
+</ng-container>

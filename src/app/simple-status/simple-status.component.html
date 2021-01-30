@@ -1,0 +1,25 @@
+<div class="view-item">
+  <label>Status </label>
+  <div class="value">
+    <i class="fa-lightbulb status" [ngClass]="{ fas: state, far: !state }" (click)="toggleState.next()"></i>
+  </div>
+</div>
+<div class="view-item">
+  <label>Couleur </label>
+  <div class="value">
+    <app-color
+      [colorTemperature]="tempColor"
+      [hue]="hue"
+      [sat]="sat"
+      [bright]="intensity"
+      [hexCode]="hexColor"
+      [mode]="mode"
+    ></app-color>
+  </div>
+</div>
+<div class="view-item">
+  <label>Intensité </label>
+  <div class="value">
+    <progress value="{{ intensity }}" max="100">{{ intensity }} %</progress>
+  </div>
+</div>
